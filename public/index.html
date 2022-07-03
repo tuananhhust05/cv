@@ -25,13 +25,19 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-
+      <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
     <link rel="stylesheet" href="css/skins/color-1.css"class="alternative-style"title="color-1">
     <link rel="stylesheet" href="css/skins/color-2.css"class="alternative-style"title="color-2"disabled>
     <link rel="stylesheet" href="css/skins/color-3.css"class="alternative-style"title="color-3"disabled>
     <link rel="stylesheet" href="css/skins/color-4.css"class="alternative-style"title="color-4"disabled>
     <link rel="stylesheet" href="css/skins/color-5.css"class="alternative-style"title="color-5"disabled>
-   
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
   
@@ -76,7 +82,7 @@ body{
     margin:0;
     padding:0;
     outline:none;
-    text-decoration: none;
+    text-decoration: none!important;
     box-sizing:border-box;
 }
 ::before, ::after {
@@ -168,6 +174,16 @@ ul{
 .shadow-dark{
     box-shadow:0 0 20px rgba(4,46,77,0.15);
 }
+/*css more*/
+.dropdown{
+    display:none;
+}
+.more_element{
+    color: black !important;
+}
+
+
+
 /*css side bar*/
 .aside{
     width:270px;
@@ -696,6 +712,10 @@ h3.my-profession{
    .aside{
     left:-270px;
    }
+   .dropdown{
+    display:block;
+    margin:15px;
+   }
    .main-content{
     padding-left:0;
    }
@@ -817,6 +837,18 @@ h3.my-profession{
     <body class="dark">
       <!--Main container start -->
       <div class="main-container"style="overflow:hidden">
+        <div class="dropdown" style="position:fixed;z-index:1000">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                MORE
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="more_element"id="section_symbol" href="#home"onclick="setSectionActive('home')"title="home" class="active"><i style="padding:10px"class="fa fa-home"></i>Home</a></li>
+                <li><a class="more_element"id="section_symbol"href="#about"onclick="setSectionActive('about')"title="about"><i style="padding:10px"class="fa fa-user"></i>About</a></li>
+                <li><a class="more_element"id="section_symbol"href="#services"onclick="setSectionActive('service')"title="service"><i style="padding:10px"class="fa fa-list"></i>Services</a></li>
+                <li><a class="more_element"id="section_symbol"href="#portfolio"onclick="setSectionActive('portfolio')"title="portfolio"><i style="padding:10px"class="fa fa-briefcase"></i>Portfolio</a></li>
+                <li><a class="more_element"id="section_symbol"href="#contact"onclick="setSectionActive('contact')"title="contact"><i style="padding:10px"class="fa fa-comments"></i>Contact</a></li>
+            </ul>
+       </div>
           <!--aside start-->
           <div class="aside">
               <div class="logo">
@@ -838,12 +870,12 @@ h3.my-profession{
           <!--aside end-->
   
           <!--main content start-->
-          <div class="main-content">
+          <div class="main-content" style="overflow:hidden">
               <!--Home section start -->
               <section class="home section"id="home">
                   <div class="container">
                      <div class="row">
-                         <div class="home-info padd-15">
+                         <div class="home-info padd-15"data-aos="fade-right">
                               <h3 class="hello">Hello, my name is <span class="name">Tuan Anh</span></h3>
                               <h3 class="my-profession">I'm a <span class="typing">web developer</span></h3>
                               <p>I'm a full stack developer with 6 experience for 6 months. My experience is to create server and UI app.In 2012, I earned a master's degree in computer.</p>
@@ -867,13 +899,13 @@ h3.my-profession{
                       <div class="row">
                           <div class="about-content padd-15">
                               <div class="row">
-                                  <div class="about-text padd-15">
+                                  <div class="about-text padd-15"data-aos="fade-up">
                                       <h3>I'm Tuan Anh <span>Web Developer</span></h3>
                                       <p>Web application user interface design isn’t just about buttons and menus, plays an important role in determining how  the user and the application or device, and in many cases, it’s about the interaction between multiple users through that device. This means that user interface design isn’t about how a product looks, but rather about how it works. This is because UI design has to do with how different visual elements, such as colors, typography, and imagery, work together to create a seamless user experience</p>
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="personal-info padd-15">
+                                  <div class="personal-info padd-15"data-aos="fade-right">
                                       <div class="row">
                                           <div class="info-item padd-15">
                                               <p>Birthday: <span>17 sep 1999</span></p>
@@ -904,7 +936,7 @@ h3.my-profession{
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="skills padd-15">
+                                  <div class="skills padd-15"data-aos="fade-left">
                                       <div class="row">
                                          
                                           <div class="skill-item">
@@ -961,7 +993,7 @@ h3.my-profession{
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="education padd-15">
+                                  <div class="education padd-15"data-aos="fade-right">
                                       <h3 class="title">Education</h3>
                                       <div class="row">
                                           <div class="timline-box padd-15">
@@ -998,7 +1030,7 @@ h3.my-profession{
                                           </div>
                                       </div>
                                   </div>
-                                  <div class="experience padd-15">
+                                  <div class="experience padd-15"data-aos="fade-left">
                                       <div class="title">
                                           <h3 class="title">Experience</h3>
                                           <div class="row">
@@ -1053,7 +1085,7 @@ h3.my-profession{
                   </div>
                   <div class="row">
                       <!--service-item start-->
-                      <div class="service-item padd-15">
+                      <div class="service-item padd-15"data-aos="fade-right">
                           <div class="service-item-inner">
                               <div class="icon">
                                   <i class="fa fa-mobile-alt"></i>
@@ -1064,7 +1096,7 @@ h3.my-profession{
                       </div>
                        <!--service-item end-->
                        <!--service-item start-->
-                       <div class="service-item padd-15">
+                       <div class="service-item padd-15"data-aos="fade-left">
                           <div class="service-item-inner">
                               <div class="icon">
                                   <i class="fa fa-laptop-code"></i>
@@ -1075,7 +1107,7 @@ h3.my-profession{
                       </div>
                        <!--service-item end-->
                        <!--service-item start-->
-                       <div class="service-item padd-15">
+                       <div class="service-item padd-15"data-aos="fade-right">
                           <div class="service-item-inner">
                               <div class="icon">
                                   <i class="fa fa-palette"></i>
@@ -1086,7 +1118,7 @@ h3.my-profession{
                       </div>
                        <!--service-item end-->
                       <!--service-item start-->
-                      <div class="service-item padd-15">
+                      <div class="service-item padd-15"data-aos="fade-left">
                           <div class="service-item-inner">
                               <div class="icon">
                                   <i class="fa fa-bullhorn"></i>
@@ -1113,84 +1145,84 @@ h3.my-profession{
                               </div>
                           </div>
                           <div class="row">
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-down">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/11.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-down">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/12.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-down">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/13.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-left">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/14.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="flip-left">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/15.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-right">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/16.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-left">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/17.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="flip-right">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/19.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-right">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/20.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-up">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/21.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-up">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/22.jpg" alt="">
                                       </div>
                                   </div>
                               </div>
-                              <div class="portfolio-item padd-15">
+                              <div class="portfolio-item padd-15"data-aos="fade-up">
                                   <div class="portfolio-item-inner shadow-dark">
                                       <div class="portfolio-img">
                                           <img src="img/23.jpg" alt="">
@@ -1215,7 +1247,7 @@ h3.my-profession{
                       <h4 class="contact-sub-title">I'M YOUR SERVICES</h4>
                       <div class="row">
                           <!--Contact-info-->
-                          <div class="contact-info-item padd-15">
+                          <div class="contact-info-item padd-15"data-aos="fade-up-left">
                               <div class="icon">
                                   <i class="fa fa-phone"></i>
                               </div>
@@ -1223,7 +1255,7 @@ h3.my-profession{
                               <p>033 9170155</p>
                           </div>
                            <!--Contact-info-->
-                           <div class="contact-info-item padd-15">
+                           <div class="contact-info-item padd-15"data-aos="fade-up-left">
                               <div class="icon">
                                   <i class="fa fa-solid fa-building"></i>
                               </div>
@@ -1231,7 +1263,7 @@ h3.my-profession{
                               <p>Hoang Mai, Ha Noi</p>
                           </div>
                            <!--Contact-info-->
-                           <div class="contact-info-item padd-15">
+                           <div class="contact-info-item padd-15"data-aos="fade-up-right">
                               <div class="icon">
                                   <i class="fa fa-solid fa-envelope"></i>
                               </div>
@@ -1239,7 +1271,7 @@ h3.my-profession{
                               <p>tuananhhust05@gmail.com</p>
                           </div>
                            <!--Contact-info-->
-                           <div class="contact-info-item padd-15">
+                           <div class="contact-info-item padd-15"data-aos="fade-up-right">
                               <div class="icon">
                                   <i class="fa fa-globe-europe"></i>
                               </div>
@@ -1271,7 +1303,7 @@ h3.my-profession{
                                           <input type="text" class="form-control"placeholder="Subject">
                                       </div>
                                   </div>
-                                  <div class="form-item col-12 padd-15">
+                                  <div class="form-item col-12 padd-15"data-aos="flip-down">
                                       <div class="form-group">
                                          <textarea name=""class="form-control"id=""placeholder="Message"></textarea>
                                       </div>
@@ -1314,5 +1346,8 @@ h3.my-profession{
       <!--main container end-->
       <script src="js/script.js"></script>
       <script src="js/style-switcher.js"></script>
+      <script>
+        AOS.init();
+    </script>
     </body>
 </html>
